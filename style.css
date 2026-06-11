@@ -1,1 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #0b2b4a;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.9), transparent 12%),
+    radial-gradient(circle at 85% 35%, rgba(255,255,255,0.7), transparent 14%),
+    linear-gradient(135deg, #75bdf2 0%, #c8ecff 45%, #eaf8ff 100%);
+
+  overflow-x: hidden;
+}
+
+/* Световые линии на фоне */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(145deg, transparent 45%, rgba(255,255,255,0.7) 50%, transparent 55%),
+    linear-gradient(160deg, transparent 55%, rgba(95, 210, 255, 0.45) 60%, transparent 65%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Верхнее меню */
+.aero-navbar {
+  width: calc(100% - 60px);
+  max-width: 1400px;
+  margin: 35px auto 0;
+  padding: 12px 28px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.85),
+    rgba(170,220,255,0.45)
+  );
+
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(21, 102, 170, 0.35),
+    inset 0 1px 4px rgba(255,255,255,0.95),
+    inset 0 -2px 8px rgba(0, 95, 180, 0.25);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1c5a91;
+  white-space: nowrap;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1b5c91;
+  font-size: 18px;
+  padding: 14px 24px;
+
+  border-radius: 14px;
+  transition: 0.25s;
+
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+nav a:hover,
+nav a.active {
+  color: white;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 220, 255, 0.95),
+    rgba(36, 150, 225, 0.7)
+  );
+
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.9),
+    0 0 18px rgba(65, 205, 255, 0.9);
+}
+
+/* Главный блок */
+.hero {
+  min-height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card {
+  width: min(1100px, 92%);
+  min-height: 430px;
+  padding: 80px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.82),
+      rgba(190,230,255,0.45)
+    );
+
+  border: 1px solid rgba(255,255,255,0.95);
+  border-radius: 32px;
+
+  box-shadow:
+    0 25px 60px rgba(19, 94, 160, 0.4),
+    inset 0 2px 5px rgba(255,255,255,0.95),
+    inset 0 -6px 18px rgba(0, 115, 210, 0.22);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Световой узор внутри карточки */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  right: -100px;
+  bottom: -80px;
+  width: 70%;
+  height: 65%;
+
+  background:
+    radial-gradient(circle at 70% 40%, rgba(255,255,255,0.9), transparent 8%),
+    linear-gradient(150deg, transparent 25%, rgba(113, 222, 255, 0.6) 45%, transparent 65%),
+    linear-gradient(160deg, transparent 20%, rgba(184, 255, 210, 0.55) 50%, transparent 75%);
+
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+h1 {
+  font-size: clamp(56px, 9vw, 110px);
+  line-height: 1;
+  color: #082d50;
+  letter-spacing: -4px;
+
+  text-shadow:
+    0 2px 0 rgba(255,255,255,0.8),
+    0 8px 20px rgba(0,70,140,0.25);
+}
+
+.glow-line {
+  width: 70%;
+  height: 3px;
+  margin: 36px 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,180,255,1),
+    rgba(255,255,255,0.8),
+    transparent
+  );
+
+  box-shadow: 0 0 16px rgba(0, 200, 255, 0.9);
+}
+
+p {
+  font-size: 24px;
+  max-width: 700px;
+  line-height: 1.5;
+  color: #143451;
+}
+
+/* Кнопки */
+.buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 38px;
+}
+
+.aero-button {
+  display: inline-block;
+  text-decoration: none;
+
+  padding: 15px 28px;
+  border-radius: 16px;
+
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+
+  background: linear-gradient(
+    to bottom,
+    #7de5ff,
+    #2198df
+  );
+
+  border: 1px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.95),
+    inset 0 -4px 8px rgba(0,80,150,0.35),
+    0 8px 20px rgba(0,95,180,0.35);
+
+  transition: 0.25s;
+}
+
+.aero-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.95),
+    inset 0 -4px 8px rgba(0,80,150,0.35),
+    0 0 25px rgba(0,200,255,0.9);
+}
+
+.aero-button.secondary {
+  color: #114b77;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.95),
+    rgba(180,225,255,0.75)
+  );
+}
+
+/* Карточки проектов */
+.project-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.project-card {
+  width: 260px;
+  padding: 22px;
+
+  border-radius: 20px;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.9),
+    0 8px 20px rgba(30,100,160,0.2);
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  color: #0d4777;
+}
+
+.project-card p {
+  font-size: 16px;
+}
+
+/* Адаптация под телефон */
+@media (max-width: 800px) {
+  .aero-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 16px;
+    padding: 11px 16px;
+  }
+
+  .glass-card {
+    padding: 45px 30px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
